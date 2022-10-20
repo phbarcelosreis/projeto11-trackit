@@ -1,5 +1,5 @@
 import React from "react";
-import Habitos from "./TelaInicial/Habitos"
+import Login from "./pages/Login/Login";
 
 /* import {BrowserRouter as Router, Routes ,Route} from "react-router-dom"; */
 
@@ -8,7 +8,7 @@ export default function App() {
 
     return (
         <div>
-            <Habitos/>
+            <Login></Login>
 {/*             <Router>
                 <Routes>
                     <Route path="/" element={<Login />} />

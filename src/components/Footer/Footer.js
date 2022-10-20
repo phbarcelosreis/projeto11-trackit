@@ -14,7 +14,7 @@ const Bottom = styled.div`
 const Sphere = styled.div`
     position: absolute;
     left: 145px;
-    bottom: 250px;
+    bottom: 310px;
     height: 91px;
     width: 91px;
     border-radius: 100px;
@@ -33,6 +33,7 @@ function Footer(){
             </h2>
             <Sphere>
                 <p>Hoje</p>
+                <img src="" alt="" />
             </Sphere>
             <h2>
                 Histórico
