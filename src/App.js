@@ -1,13 +1,15 @@
 import React from "react";
-import Header from "./TelaInicial/Header";
-import {BrowserRouter as Router, Routes ,Route} from "react-router-dom";
+import Habitos from "./TelaInicial/Habitos"
+
+/* import {BrowserRouter as Router, Routes ,Route} from "react-router-dom"; */
 
 
 export default function App() {
 
     return (
         <div>
-            <Router>
+            <Habitos/>
+{/*             <Router>
                 <Routes>
                     <Route path="/" element={<Login />} />
                     <Route path="/Cadastro" element={<Cadastro />} />
@@ -15,7 +17,7 @@ export default function App() {
                     <Route path="/Hoje" element={<Hoje />} />
                 </Routes>
 
-            </Router>
+            </Router> */}
 
         </div>
 
