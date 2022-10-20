@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {BrowserRouter as Router, Routes ,Route} from "react-router-dom";
+
 
 const Head = styled.div`
     width: 375px;
@@ -11,16 +11,10 @@ const Head = styled.div`
 
 function Header(){
     return (
-
-        <Router>
-            <Routes>
-                <Route path="/" element={<Login/>}/>
-                <Route path="/Cadastro" element={<Cadastro/>}/>
-                <Route path="/Habitos" element={<Habitos/>}/>
-                <Route path="/Hoje" element={<Hoje/>}/>
-            </Routes>
+        <Head>
             
-        </Router>
+        </Head>
+
 
     )
 }
