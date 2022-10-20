@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const Bottom = styled.div`
+    box-sizing: border-box;
+    padding: 0px 36px 0px 36px;
     display: flex;
     justify-content: space-between;
     width: 375px;
@@ -10,9 +12,16 @@ const Bottom = styled.div`
 `
 
 const Sphere = styled.div`
+    position: absolute;
+    left: 145px;
+    bottom: 250px;
     height: 91px;
     width: 91px;
     border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #52B6FF;
 `
 
 function Footer(){
@@ -23,7 +32,7 @@ function Footer(){
                 Hábitos
             </h2>
             <Sphere>
-                Hoje
+                <p>Hoje</p>
             </Sphere>
             <h2>
                 Histórico

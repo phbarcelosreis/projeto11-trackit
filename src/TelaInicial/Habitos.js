@@ -54,6 +54,7 @@ function Habitos(){
                 <Top>
                     <h1>Meus hábitos</h1>
                     <button />
+                    
                 </Top>
                 {listaHabitos[0] === "" ? <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p> : "Habito"}
             </Screen>
