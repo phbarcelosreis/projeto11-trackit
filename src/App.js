@@ -1,5 +1,5 @@
 import React from "react";
-import Login from "./pages/Login/Login";
+import Cadastro from "./pages/Cadastro/Cadastro";
 
 /* import {BrowserRouter as Router, Routes ,Route} from "react-router-dom"; */
 
@@ -8,7 +8,7 @@ export default function App() {
 
     return (
         <div>
-            <Login></Login>
+            <Cadastro></Cadastro>
 {/*             <Router>
                 <Routes>
                     <Route path="/" element={<Login />} />

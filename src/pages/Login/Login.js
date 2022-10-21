@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Logo from "../../assets/images/Group8.png"
 
 const Button = styled.button`
     width: 303px;
@@ -24,6 +25,9 @@ const LogIn = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-bottom: 100px;
     width: 375px;
     height: 667px;
     & > p{
@@ -47,7 +51,9 @@ const LogIn = styled.div`
         margin-bottom: 6px;
         display: flex;
         text-align: center;
-    } & input ::placeholder{        
+    } & img{
+        margin-bottom: 32px;
+    }& input ::placeholder{        
         font-family: 'Lexend Deca';
         font-style: normal;
         font-weight: 400;
@@ -61,9 +67,9 @@ function Login(){
 
     return (
         <LogIn>
-            <img src="/assets/images/Group8.png" alt="" />
+            <img src={Logo} alt="Logo TrackIt" />
             <input placeholder="email"></input>
-            <input placeholder="senha"></input>
+            <input onChange={e => e.target.value} placeholder="senha"></input>
             <Button><p>Entrar</p></Button>
             <p>Não tem uma conta? Cadastre-se!</p>
         </LogIn>
