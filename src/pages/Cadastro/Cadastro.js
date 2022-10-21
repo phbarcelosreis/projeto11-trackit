@@ -24,6 +24,17 @@ const LogIn = styled.div`
         text-align: center;
     } & img{
         margin-bottom: 32px;
+    } & > p{
+        margin-top: 25px;
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13.976px;
+        line-height: 17px;
+        text-align: center;
+        text-decoration-line: underline;
+        color: #52B6FF;
+        cursor: pointer;
     }
 `
 const Button = styled.button`
@@ -46,7 +57,7 @@ const Button = styled.button`
     }
 `
 
-function Cadastro(){
+function Cadastro() {
 
 
     return (
@@ -57,7 +68,8 @@ function Cadastro(){
             <input placeholder="nome" />
             <input placeholder="foto" />
             <Button>Cadastrar</Button>
-        </LogIn> 
+            <p>Já tem uma conta? Faça login!</p>
+        </LogIn>
 
     )
 };
