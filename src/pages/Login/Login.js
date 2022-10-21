@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Logo from "../../assets/images/Group8.png"
+import { Link } from "react-router-dom";
 
 const Button = styled.button`
     width: 303px;
@@ -30,7 +31,7 @@ const LogIn = styled.div`
     padding-bottom: 100px;
     width: 375px;
     height: 667px;
-    & > p{
+    & > Link{
         margin-top: 25px;
         font-family: 'Lexend Deca';
         font-style: normal;
@@ -71,7 +72,7 @@ function Login(){
             <input placeholder="email"></input>
             <input onChange={e => e.target.value} placeholder="senha"></input>
             <Button><p>Entrar</p></Button>
-            <p>Não tem uma conta? Cadastre-se!</p>
+            <Link to="/Cadastro"><p>Não tem uma conta? Cadastre-se!</p></Link>
         </LogIn>
 
     )

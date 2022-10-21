@@ -1,5 +1,7 @@
 import React from "react";
-import Cadastro from "./pages/Cadastro/Cadastro";
+import GlobalStyle from "./assets/styles/GlobalStyle"
+import { BrowserRouter as Router } from "react-router-dom";
+import Login from "./pages/Login/Login";
 
 /* import {BrowserRouter as Router, Routes ,Route} from "react-router-dom"; */
 
@@ -7,19 +9,11 @@ import Cadastro from "./pages/Cadastro/Cadastro";
 export default function App() {
 
     return (
-        <div>
-            <Cadastro></Cadastro>
-{/*             <Router>
-                <Routes>
-                    <Route path="/" element={<Login />} />
-                    <Route path="/Cadastro" element={<Cadastro />} />
-                    <Route path="/Habitos" element={<Habitos />} />
-                    <Route path="/Hoje" element={<Hoje />} />
-                </Routes>
+        <Router>
 
-            </Router> */}
-
-        </div>
+            <GlobalStyle/>
+            <Login/>
+        </Router>
 
 
     )
