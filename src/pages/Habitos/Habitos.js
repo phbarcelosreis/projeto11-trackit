@@ -99,7 +99,7 @@ function Habitos() {
                 <CriarHabito setClicado={setClicado} clicado={clicado}/>
 
                 {coisas.length === 0 ? <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p> : (
-                coisas.map( (item, i) => <Coisas item={item} key={i} i={i}/>) 
+                coisas.map( (props, i) => <Coisas item={props} key={i} i={i}/>) 
             )
             }
             </Screen>
