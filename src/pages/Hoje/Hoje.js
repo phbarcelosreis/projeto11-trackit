@@ -8,32 +8,53 @@ const Page = styled.div`
     box-sizing: border-box;
     height: 527px;
     width: 375px;
-    padding: 0px 17px 0px 17px;
-    h1{
-        font-family: 'Lexend Deca';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 23px;
-        color: #126BA5;
-    }
-    h2{
-        font-family: 'Lexend Deca';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        color: #8FC549;
-    }
+`
+const TituloHoje = styled.div`
 
 `
 
-export default function Hoje() {
+const Sequencia = styled.div`
+
+`
+
+const CardHabito = styled.div`
+
+
+`
+
+const Pontuacao = styled.div`
+    color: ${p => p.colorText ? "#8FC549" : "#666666"} ;
+`
+const MelhorPontos = styled.div`
+    color: ${p => p.colorText ? "#8FC549" : "#666666"} ;
+`
+
+export default function Hoje({ props }) {
 
 
     return (
 
         <>
             <Header></Header>
-            <Page></Page>
+            <Page>
+                <TituloHoje>
+                    <h1>a</h1>
+                    <h2>a</h2>
+                </TituloHoje>
+
+                <CardHabito>
+                    <Sequencia>
+                        <h1>{props.name}</h1>
+                        <h3>Sequência Atual: <Pontuacao cor={props.done}>{props.currentSequence} {props.currentSequence > 1 ? "dias" : "dia"}</Pontuacao></h3>
+                        <h3>Seu Recorde: 
+                            <MelhorPontos cor={(props.currentSequence !== 0) && props.done && (props.currentSequence >= props.highestSequence)}>
+                                {props.highestSequence} {props.highestSequence > 1 ? "dias" : "dia"}
+                            </MelhorPontos>
+                        </h3>
+                    </Sequencia>
+                    <img src="" alt="" />
+                </CardHabito>
+            </Page>
             <Footer></Footer>
 
         </>
