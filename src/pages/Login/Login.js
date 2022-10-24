@@ -4,6 +4,7 @@ import Logo from "../../assets/images/Group8.png"
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import {Context} from "../../components/Autenticador.js"
+import { ThreeDots as Loading } from "react-loader-spinner";
 
 
 const Button = styled.button`
@@ -69,10 +70,12 @@ const LogIn = styled.form`
 `
 
 function Login() {
+
     /* States Locais */
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [desabilitar, setDesabilitar] = useState(false);
+
     /* States do Autenticador / Navigate / Context */
     const {setUsuarioImg, setToken} = useContext(Context);
     const Navegar = useNavigate();
@@ -114,7 +117,7 @@ function Login() {
             <img src={Logo} alt="Logo TrackIt" />
             <input type="email" placeholder="email" disabled={desabilitar} onChange={(e) => setEmail(e.target.value)} required></input>
             <input type="password" disabled={desabilitar} onChange={e => setSenha(e.target.value)} placeholder="senha" required></input>
-            <Button type="submit" disabled={desabilitar}><p>{!desabilitar ? "Entrar" : "Nada por enquanto"}</p></Button>
+            <Button type="submit" disabled={desabilitar}><p>{!desabilitar ? "Entrar" : <Loading color="#FFFF"></Loading>}</p></Button>
             <Link to="/Cadastro"><p>Não tem uma conta? Cadastre-se!</p></Link>
         </LogIn>
 

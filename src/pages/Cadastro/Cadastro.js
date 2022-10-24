@@ -3,7 +3,7 @@ import Logo from "../../assets/images/Group8.png"
 import styled from "styled-components";
 
 
-const LogIn = styled.div`
+const LogIn = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
