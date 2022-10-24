@@ -1,7 +1,6 @@
-import React from "react";
 import {createContext , useState} from "react"
 
-function Authenticator(){
+function Autenticador(){
 
     const [porcentagem, setPorcentagem] = useState(0);
     const [checagem, setChecagem] = useState([]);
@@ -10,7 +9,7 @@ function Authenticator(){
     const [token, setToken] = useState(null);
 
     function CalcularPorcentagem( props ){
-        if(props.lenght === 0){
+        if(props.length === 0){
             setPorcentagem(0);
         } else{
 
@@ -20,4 +19,4 @@ function Authenticator(){
 }
 
 export const Context = createContext({});
-export default Authenticator;
+export default Autenticador;
