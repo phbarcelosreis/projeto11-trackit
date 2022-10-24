@@ -83,18 +83,26 @@ function Login() {
         }
 
         setDesabilitar(true);
+
+        const promessa = axios.post(Api, emailUser);
+        promessa.then((props) => {
+            setImagemUsario(props.data.image);
+            setToken(props.data.token)
+        })
+
     }
 
-    function JustDoIt(){
-        
+    function JustDoIt(e){
+        e.preventDefault();
+        Logando();
     }
 
 
     return (
         <LogIn onSubmit={JustDoIt}>
             <img src={Logo} alt="Logo TrackIt" />
-            <input type="email" placeholder="email" disabled={desabilitar} onChange={(e) => setEmail(e.target.value)}  required></input>
-            <input onChange={e => e.target.value} placeholder="senha"></input>
+            <input type="email" placeholder="email" disabled={desabilitar} onChange={(e) => setEmail(e.target.value)} required></input>
+            <input type="password" disabled={desabilitar} onChange={e => e.target.value} placeholder="senha" required></input>
             <Button><p>Entrar</p></Button>
             <Link to="/Cadastro"><p>Não tem uma conta? Cadastre-se!</p></Link>
         </LogIn>
