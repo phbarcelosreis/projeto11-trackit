@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ThreeDots as Loading } from "react-loader-spinner";
 import axios from "axios";
 
 
@@ -110,7 +111,7 @@ function Cadastro() {
             <input onChange={e => setSenha(e.target.value)} disabled={desabilitar} type="password" placeholder="senha" required/>
             <input onChange={e => setNome(e.target.value)} disabled={desabilitar} placeholder="nome" required/>
             <input onChange={e => setFoto(e.target.value)} disabled={desabilitar} type="url" placeholder="foto" required/>
-            <Button>Cadastrar</Button>
+            <Button type="submit" disabled={desabilitar}>{!desabilitar ? "Cadastrar" : <Loading color="#FFFF"></Loading>}</Button>
             <Link to="/" ><p>Já tem uma conta? Faça login!</p></Link>
         </LogIn>
 
