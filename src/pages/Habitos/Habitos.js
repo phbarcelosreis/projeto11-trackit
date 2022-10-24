@@ -1,7 +1,12 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components";
 import Header from "../../components/Header/Header"
 import Footer from "../../components/Footer/Footer";
+import { UserContext } from "../../App";
+import { useState, useContext} from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import CriarHabito from "./CriarHabitos";
 
 const Screen = styled.div`
     box-sizing: border-box;
@@ -52,8 +57,36 @@ const Top = styled.div`
 `
 
 function Habitos() {
+    /* State Local */
+    const [clicado, setClicado] = useState(false);
+    const [coisas, setCoisas] = useState([]);
+    const Api = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits";
+    /*States Globais*/
+    const { token, checado } = useContext(UserContext);
+    const Navegar = useNavigate();
 
-    let listaHabitos = [""];
+    useEffect(() => {
+
+        const something = {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+
+        const promessa = axios.get(Api, something)
+        promessa.then((props) => {
+            setCoisas(props.data)
+        })
+
+        promessa.catch((errozin) => {
+            alert('Error: ' + errozin.response.data.message);
+            Navegar("/");
+            window.location.reload();
+        });
+
+
+    },[Navegar, token, checado])
+
 
     return (
         <div>
@@ -61,10 +94,14 @@ function Habitos() {
             <Screen>
                 <Top>
                     <h1>Meus hábitos</h1>
-                    <button />
-
+                    <button onClick={()=> setClicado(true)}/>
                 </Top>
-                {listaHabitos[0] === "" ? <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p> : "Habito"}
+                <CriarHabito setClicado={setClicado} clicado={clicado}/>
+
+                {coisas.length === 0 ? <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p> : (
+                coisas.map( (item, i) => <Coisas item={item} key={i} i={i}/>) 
+            )
+            }
             </Screen>
             <Footer />
         </div>
