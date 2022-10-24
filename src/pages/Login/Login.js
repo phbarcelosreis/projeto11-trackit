@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Logo from "../../assets/images/Group8.png"
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import {Context} from "../../components/Autenticador.js"
+import {UserContext} from "../../App"
 import { ThreeDots as Loading } from "react-loader-spinner";
 
 
@@ -77,7 +77,7 @@ function Login() {
     const [desabilitar, setDesabilitar] = useState(false);
 
     /* States do Autenticador / Navigate / Context */
-    const {setUsuarioImg, setToken} = useContext(Context);
+    const {setUsuarioImg, setToken} = useContext(UserContext);
     const Navegar = useNavigate();
     const Api = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login";
     
@@ -86,17 +86,18 @@ function Login() {
 
         const emailUser = {
             email: email,
-            senha: senha
+            password: senha
         }
 
         setDesabilitar(true);
 
         const promessa = axios.post(Api, emailUser);
         promessa.then((props) => {
+            
             setUsuarioImg(props.data.image);
-            setToken(props.data.token)
+            setToken(props.data.token);
 
-            Navegar("/hoje")
+            Navegar("/Habitos")
         });
 
         promessa.catch((e) => {

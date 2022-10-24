@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-
+import { UserContext } from "../../App";
+import { useContext } from "react";
 
 const Head = styled.div`
     justify-content: space-between;
@@ -24,10 +25,13 @@ const Head = styled.div`
 `
 
 function Header() {
+
+    const {usuarioImg} = useContext(UserContext);
+
     return (
         <Head>
             <h1>TrackIt</h1>
-            <img src="" alt="Foto de Perfil"/>
+            <img src={usuarioImg} alt="Foto de Perfil"/>
         </Head>
 
 

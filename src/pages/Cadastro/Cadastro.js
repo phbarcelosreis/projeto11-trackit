@@ -80,9 +80,9 @@ function Cadastro() {
 
         const emailUser = {
             email: email,
-            senha: senha,
-            nome: nome,
-            foto: foto
+            name: nome,
+            image: foto,
+            password: senha
         }
         
         const promessa = axios.post(Api, emailUser);
