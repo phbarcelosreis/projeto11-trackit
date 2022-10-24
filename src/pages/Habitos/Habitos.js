@@ -41,24 +41,32 @@ const Top = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 85px;
+    & h1{
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22.976px;
+        line-height: 29px;
+        color: #126BA5;
+    }
 `
 
-function Habitos(){
+function Habitos() {
 
     let listaHabitos = [""];
 
     return (
         <div>
-            <Header/>
+            <Header />
             <Screen>
                 <Top>
                     <h1>Meus hábitos</h1>
                     <button />
-                    
+
                 </Top>
                 {listaHabitos[0] === "" ? <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p> : "Habito"}
             </Screen>
-            <Footer/>
+            <Footer />
         </div>
 
 

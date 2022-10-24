@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { UserContext } from "../../App";
 import { useContext } from "react";
+import Trackit from "../../assets/images/TrackIt.png"
 
 const Head = styled.div`
     justify-content: space-between;
@@ -17,24 +18,28 @@ const Head = styled.div`
         width: 97px;
         height: 49px;
         background-color: red;
-    } & img{
+    } & img:nth-child(2){
         width: 51px;
         height: 51px;
         border-radius: 98px;
+    } & img:nth-child(1){
+        width: 97px;
+        height: 30px;
+
     }
 `
 
+
+
 function Header() {
 
-    const {usuarioImg} = useContext(UserContext);
+    const { usuarioImg } = useContext(UserContext);
 
     return (
         <Head>
-            <h1>TrackIt</h1>
-            <img src={usuarioImg} alt="Foto de Perfil"/>
+            <img src={Trackit} alt="Logo"></img>
+            <img src={usuarioImg} alt="Foto de Perfil" />
         </Head>
-
-
     )
 }
 
