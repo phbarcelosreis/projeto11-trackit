@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import Logo from "../../assets/images/Group8.png"
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import {Autenticador} from "../../components/Autenticador.js"
+import {Context} from "../../components/Autenticador.js"
 
 
 const Button = styled.button`
@@ -69,12 +69,12 @@ const LogIn = styled.form`
 `
 
 function Login() {
-
+    /* States Locais */
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [desabilitar, setDesabilitar] = useState(false);
-
-    const {setUsuarioImg, setToken} = useContext(Autenticador)
+    /* States do Autenticador / Navigate / Context */
+    const {setUsuarioImg, setToken} = useContext(Context);
     const Navegar = useNavigate();
     const Api = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login";
     
@@ -113,7 +113,7 @@ function Login() {
         <LogIn onSubmit={JustDoIt}>
             <img src={Logo} alt="Logo TrackIt" />
             <input type="email" placeholder="email" disabled={desabilitar} onChange={(e) => setEmail(e.target.value)} required></input>
-            <input type="password" disabled={desabilitar} onChange={e => e.target.value} placeholder="senha" required></input>
+            <input type="password" disabled={desabilitar} onChange={e => setSenha(e.target.value)} placeholder="senha" required></input>
             <Button type="submit" disabled={desabilitar}><p>{!desabilitar ? "Entrar" : "Nada por enquanto"}</p></Button>
             <Link to="/Cadastro"><p>Não tem uma conta? Cadastre-se!</p></Link>
         </LogIn>
