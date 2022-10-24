@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Logo from "../../assets/images/Group8.png"
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 
 const Button = styled.button`
     width: 303px;
@@ -13,6 +15,7 @@ const Button = styled.button`
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    margin-bottom: 25px;
     & p {
     font-family: 'Lexend Deca';
     font-style: normal;
@@ -22,7 +25,7 @@ const Button = styled.button`
     color: #FFFFFF;
     }
 `
-const LogIn = styled.div`
+const LogIn = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,12 +67,33 @@ const LogIn = styled.div`
     }
 `
 
-function Login(){
+function Login() {
+
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+    const [desabilitar, setDesabilitar] = useState(false);
+
+    const Api = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login";
+
+    function Logando(){
+
+        const emailUser = {
+            email: email,
+            senha: senha
+        }
+
+        setDesabilitar(true);
+    }
+
+    function JustDoIt(){
+        
+    }
+
 
     return (
-        <LogIn>
+        <LogIn onSubmit={JustDoIt}>
             <img src={Logo} alt="Logo TrackIt" />
-            <input placeholder="email"></input>
+            <input type="email" placeholder="email" disabled={desabilitar} onChange={(e) => setEmail(e.target.value)}  required></input>
             <input onChange={e => e.target.value} placeholder="senha"></input>
             <Button><p>Entrar</p></Button>
             <Link to="/Cadastro"><p>Não tem uma conta? Cadastre-se!</p></Link>
