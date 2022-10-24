@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Header from "../../components/Header/Header"
 import Footer from "../../components/Footer/Footer";
 import { UserContext } from "../../App";
-import { useState, useContext} from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import CriarHabito from "./CriarHabitos";
@@ -85,7 +85,7 @@ function Habitos() {
         });
 
 
-    },[Navegar, token, checado])
+    }, [Navegar, token, checado])
 
 
     return (
@@ -94,19 +94,100 @@ function Habitos() {
             <Screen>
                 <Top>
                     <h1>Meus hábitos</h1>
-                    <button onClick={()=> setClicado(true)}/>
+                    <button onClick={() => setClicado(true)} />
                 </Top>
-                <CriarHabito setClicado={setClicado} clicado={clicado}/>
+                <CriarHabito setClicado={setClicado} clicado={clicado} />
 
                 {coisas.length === 0 ? <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p> : (
-                coisas.map( (props, i) => <Coisas item={props} key={i} i={i}/>) 
-            )
-            }
+                    coisas.map((props, i) => <HabitosSalvos hab={props} key={i} i={i} />)
+                )
+                }
             </Screen>
             <Footer />
         </div>
 
 
+
+    )
+
+}
+
+const Container = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    & h1{
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        color: #666666;
+        margin-bottom: 10px;
+    }
+`
+
+const ContainerHabitos = styled.div`
+    display: flex;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 10px;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    height: 91px;
+    margin-bottom: 15px;
+    background-color: #FFFF;
+    border: none;
+    border-radius: 5px;
+    & h1{
+        margin-right: 100px;
+    }
+`
+const Habits = styled.div`
+    display: flex;
+
+`
+
+const DiaSemana = styled.div`  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    margin-right: 4px;
+    border: 1px solid #D5D5D5;
+    border-radius: 5px;
+    font-family: 'Lexend Deca';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: ${props => props.Letra ? "#FFFFFF" : "#DBDBDB"};
+    background-color: ${props => props.CorDeFundo ? "#CFCFCF" : "#FFFFFF"};
+`
+
+function HabitosSalvos({ hab }) {
+
+    const DiasDaSemana = ["D", "S", "T", "Q", "Q", "S", "S"]
+
+    return (
+
+        <Container>
+            <ContainerHabitos>
+                <h1>{hab.name}</h1>
+                <Habits>
+                    {DiasDaSemana.map((props, i) =>
+                        <DiaSemana key={i} Letra={hab.days.includes(i) ? true : false} CorDeFundo={hab.days.includes(i) ? true : false}>
+                            {props}
+                        </DiaSemana>
+                    )}
+                </Habits>
+            </ContainerHabitos>
+
+
+        </Container>
 
     )
 
