@@ -57,7 +57,7 @@ const LogIn = styled.div`
     }& input ::placeholder{        
         font-family: 'Lexend Deca';
         font-style: normal;
-        font-weight: 400;
+        font-weight: 400px;
         font-size: 19.976px;
         line-height: 25px;
         color: #DBDBDB;
